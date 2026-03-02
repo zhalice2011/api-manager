@@ -1,11 +1,24 @@
-import { useEffect, useState, useRef, useCallback } from "react";
-import { request } from "../utils/request";
-import type { AppConfig, SiteAccount } from "../types/backup";
-import { Upload, ToggleLeft, ToggleRight, RefreshCw, Key, X, Copy, Check, Globe, Trash2, Plus, Pencil } from "lucide-react";
+import {useCallback, useEffect, useRef, useState} from "react";
+import {request} from "../utils/request";
+import type {AppConfig, SiteAccount} from "../types/backup";
+import {
+  Check,
+  Copy,
+  Globe,
+  Key,
+  Pencil,
+  Plus,
+  RefreshCw,
+  ToggleLeft,
+  ToggleRight,
+  Trash2,
+  Upload,
+  X
+} from "lucide-react";
 import ErrorAlert from "../components/ErrorAlert";
-import { useDebounceCallback } from "../hooks/useDebounceCallback";
-import { useConfig } from "../hooks/useConfig";
-import { useLocale } from "../hooks/useLocale";
+import {useDebounceCallback} from "../hooks/useDebounceCallback";
+import {useConfig} from "../hooks/useConfig";
+import {useLocale} from "../hooks/useLocale";
 
 export default function AccountsPage() {
   const { config, setConfig, error, setError, reload, save } = useConfig();
@@ -481,7 +494,7 @@ export default function AccountsPage() {
           </div>
         </div>
       ) : (
-        <div className="card bg-base-100 border border-base-300 overflow-x-auto">
+          <div className="card bg-base-100 border border-base-300">
           <div>
             <table className="table table-sm">
               <thead>
