@@ -1,11 +1,11 @@
-import { useState } from "react";
-import { request } from "../utils/request";
-import type { AppConfig } from "../types/backup";
-import { Play, Square, Save, Copy } from "lucide-react";
+import {useEffect, useState} from "react";
+import {request} from "../utils/request";
+import type {AppConfig} from "../types/backup";
+import {Copy, Play, Save, Square} from "lucide-react";
 import CliSyncCard from "../components/CliSyncCard";
 import PageSkeleton from "../components/PageSkeleton";
-import { useConfig } from "../hooks/useConfig";
-import { useLocale } from "../hooks/useLocale";
+import {useConfig} from "../hooks/useConfig";
+import {useLocale} from "../hooks/useLocale";
 
 interface ProxyStatus {
   running: boolean;
@@ -16,6 +16,7 @@ export default function ProxyPage() {
   const [status, setStatus] = useState<ProxyStatus>({ running: false });
   const [loading, setLoading] = useState(false);
   const [statusLoaded, setStatusLoaded] = useState(false);
+  const [saveStatus, setSaveStatus] = useState("");
   const { t } = useLocale();
 
   // Load proxy status once config is available
@@ -55,12 +56,21 @@ export default function ProxyPage() {
 
   async function handleSaveConfig() {
     if (!config) return;
+    if (loading) return;
+    setSaveStatus("");
     try {
       await save(config);
+      setSaveStatus(t("proxy.saved"));
     } catch (e) {
       setError(String(e));
     }
   }
+
+  useEffect(() => {
+    if (!saveStatus) return;
+    const timer = setTimeout(() => setSaveStatus(""), 3000);
+    return () => clearTimeout(timer);
+  }, [saveStatus]);
 
   if (!config) {
     return <PageSkeleton />;
@@ -112,6 +122,12 @@ export default function ProxyPage() {
         <div role="alert" className="alert alert-error">
           <span>{error}</span>
         </div>
+      )}
+
+      {saveStatus && (
+          <div role="status" className="alert alert-success">
+            <span>{saveStatus}</span>
+          </div>
       )}
 
       <div className="card bg-base-100 border border-base-300">

@@ -1,4 +1,4 @@
-import type { Translations } from "./en";
+import type {Translations} from "./en";
 
 const zh: Translations = {
   // ---- Nav ----
@@ -82,6 +82,14 @@ const zh: Translations = {
   "accounts.weight": "权重",
   "accounts.status": "状态",
   "accounts.action": "操作",
+  "accounts.filterSite": "站点",
+  "accounts.filterSitePlaceholder": "搜索站点名称/URL",
+  "accounts.filterType": "类型",
+  "accounts.filterHealth": "健康状态",
+  "accounts.filterStatus": "状态",
+  "accounts.filterAll": "全部",
+  "accounts.filterUnknown": "未知",
+  "accounts.clearFilters": "清空筛选",
   "accounts.jwt": "JWT",
   "accounts.notFetched": "未获取",
   "accounts.syncFromBrowser": "从浏览器同步",
@@ -94,6 +102,21 @@ const zh: Translations = {
   "accounts.clearAll": "清理所有账户",
   "accounts.clearing": "清理中...",
   "accounts.clearSuccess": "所有账户已清理",
+  "accounts.clearAllConfirmTitle": "清理所有账户",
+  "accounts.clearAllConfirmMessage": "确定清理所有账户并清空代理路由吗？此操作不可撤销。",
+  "accounts.deleteSuccess": "账户已删除",
+  "accounts.disableAll": "禁用全部",
+  "accounts.enableAll": "启用全部",
+  "accounts.enableAllSuccess": "已启用全部账户",
+  "accounts.disableAllSuccess": "已禁用全部账户",
+  "accounts.edit": "修改",
+  "accounts.delete": "删除",
+  "accounts.deleteConfirmTitle": "删除账户",
+  "accounts.deleteConfirmMessage": "确定删除账户“{name}”吗？此操作不可撤销。",
+  "accounts.copy": "复制",
+  "accounts.duplicate": "复制",
+  "accounts.duplicateSuccess": "账户已复制（新账户已禁用，请编辑 API Key）",
+  "accounts.toggleStatus": "点击切换状态",
   "accounts.addAccount": "添加账户",
   "accounts.addAccountTitle": "手动添加账户",
   "accounts.siteUrl": "站点 URL",
@@ -135,6 +158,7 @@ const zh: Translations = {
   "proxy.random": "随机",
   "proxy.weighted": "加权（按账户权重）",
   "proxy.saveConfig": "保存配置",
+  "proxy.saved": "配置已保存。",
   "proxy.usageExamples": "使用示例",
 
   // ---- Monitor ----
